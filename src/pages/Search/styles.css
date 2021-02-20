@@ -1,0 +1,76 @@
+.youtubeSearchContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #F9F9F9;
+}
+
+.youtubeSearchContainer .formContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 10vh;
+  background: #FFFFFF;
+}
+
+.youtubeSearchContainer .formContainer form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.youtubeSearchContainer .searchImput {
+  width: 60vh;
+  height: 3vh;
+  padding-left: 10px;
+  font-size: 20px;
+  color: rgb(119, 118, 118);
+  border: 1px solid rgb(230, 230, 230);
+}
+
+.youtubeSearchContainer .searchButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 3.3vh;
+  border: 1px solid rgb(230, 230, 230);
+  color: rgb(230, 230, 230);
+  outline: none;
+}
+
+.youtubeSearchContainer .searchButton:hover {
+  background-color: rgb(243, 61, 61);
+}
+
+.youtubeSearchContainer .searchButton:active {
+  background-color: rgb(255, 252, 252);
+}
+
+.youtubeSearchContainer .searchButton .searchIcon {
+  color: hsl(0, 2%, 57%);
+}
+
+.youtubeSearchContainer .responseContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  width: 100%;
+  background: chocolate;
+}
+
+.youtubeSearchContainer .videoList {
+  display: flex;
+  flex-direction: column;
+  width: 100vh;
+  background: cornflowerblue;
+}
+
+.youtubeSearchContainer .videoItem {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
