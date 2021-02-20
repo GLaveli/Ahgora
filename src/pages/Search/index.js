@@ -45,7 +45,7 @@ function Search() {
     </div>
 
     <div className="responseContainer">
-     <div className="videos">
+     <div>
       {list &&
        (list.length === 0
         ? (
@@ -59,18 +59,30 @@ function Search() {
             <div className="thumb">
              <img alt={item.author.name} src={item.thumbnail} />
             </div>
-            <div className="title">
-             <b><a href={item.link}>{item.title}</a></b>
+            <div className="videoContent">
+             <div className="title">
+              <b><a href={item.link}>{item.title}</a></b>
+             </div>
+             <div className="description">
+              <p>{item.description}</p>
+             </div>
+             <ul className="meta">
+              <div className="metaItem">
+               <li>Views: {item.views}</li>
+              </div>
+              <div className="metaItem">
+               <li>Duration: {item.duration}</li>
+              </div>
+              <div className="metaItem">
+               <li>{item.uploaded_at}</li>
+              </div>
+             </ul>
+             <ul>
+              <li className="by">
+               <li><a href={item.author.ref}>{item.author.name}</a></li>
+              </li>
+             </ul>
             </div>
-            <div className="description">
-             <p>{item.description}</p>
-            </div>
-            <ul className="meta">
-             <li>By: <a href={item.author.ref}>{item.author.name}</a></li>
-             <li>Views: {item.views}</li>
-             <li>Duration: {item.duration}</li>
-             <li>Uploaded: {item.uploaded_at}</li>
-            </ul>
            </li>
           ))}
          </ul>
