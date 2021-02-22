@@ -26,7 +26,7 @@ aguarde até a finalização da instalação e em seguida execute o comando
 
 ao iniciar o projeto basta acessar a URL
 ```
- http://localhost:3333
+ http://localhost:3000
 ```
 
 ------------------------------------------
