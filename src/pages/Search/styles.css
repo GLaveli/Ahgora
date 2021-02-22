@@ -57,8 +57,8 @@
 
 .youtubeSearchContainer .responseContainer {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
   justify-content: space-around;
   width: 100%;
   margin-bottom: 30px;
@@ -73,24 +73,28 @@
 .youtubeSearchContainer .videoItem {
   display: flex;
   align-items: center;
-  min-width: 1000px;
+  width: 700px;
   margin-top: 1vh;
   margin-bottom: 1px;
   border: 1px solid rgba(85, 84, 84, 0.5);
   background: #dddd;
 }
 
+.descriptionArea{
+  overflow: hidden;
+}
+
 .youtubeSearchContainer .thumb img {
   margin-top: 3px;
   margin-right: 10px;
-  width: 250px;
+  width: 120px;
 }
 
 .youtubeSearchContainer .videoContent {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 50%;
   height: 17vh;
 }
 
@@ -141,7 +145,7 @@
 /*-----------------*/
 
 .optons {
-  width: 600px;
+  width: 40%;
   height: 300px;
   background: chocolate;
 }
