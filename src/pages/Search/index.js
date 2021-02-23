@@ -6,7 +6,6 @@ import { FaSearch } from 'react-icons/fa';
 import { joinWords } from '../../utils/joinWords';
 
 import {
-  API_KEY_RAPID_API,
   API_KEY_GUILHERME,
   API_KEY_KEREN,
   YOUTUBE_URI,
@@ -17,39 +16,37 @@ import './styles.css';
 
 function Search() {
 
-  const [query, setQuery] = useState('polado');
+  const [query, setQuery] = useState('');
   const [list, setList] = useState([]);
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
     handleRequestVideos();
   }
 
-  function queryValidator() {
-    let newQuery = ''
-    newQuery = encodeURIComponent(query);
-    return newQuery;
-  }
-
   function handleRequestVideos() {
     let query = queryValidator();
-    axios(`${YOUTUBE_URI}search?part=snippet&maxResults=${TOTALRESULTS}&type=video&q=${query}&key=${API_KEY_GUILHERME}`)
-      .then(response => {
-        let ids = getVideoIds(response.data.items);
-        return getContent(ids);
+    axios(`${YOUTUBE_URI}search?part=snippet&maxResults=${TOTALRESULTS}&type=video&q=${query}&key=${API_KEY_KEREN}`)
+      .then(({ data: { items } }) => {
+        return getContent(getVideoIds(items));
       }).catch(err => {
         console.log(err);
       });
   };
 
+  function queryValidator() {
+    return encodeURIComponent(query);
+  };
+
+
   function getVideoIds(videos) {
-    return videos.map(video => {
-      return video.id.videoId;
+    return videos.map(({ id: { videoId } }) => {
+      return videoId;
     })
-  }
+  };
 
   function getContent(ids) {
-    axios(`${YOUTUBE_URI}videos?id=${ids}&part=snippet,contentDetails&key=${API_KEY_GUILHERME}`)
+    axios(`${YOUTUBE_URI}videos?id=${ids}&part=snippet,contentDetails&key=${API_KEY_KEREN}`)
       .then(({ data: { items } }) => {
         setList(joinWords(items));
       }).catch(err => {
@@ -74,8 +71,6 @@ function Search() {
           </form>
         </div>
         <div className="responseContainer">
-          <div className="optons">
-          </div>
           <div>
             {(list.length === 0 ?
               (<div className="videoNotFound">
@@ -102,12 +97,13 @@ function Search() {
                         </ul>
                         <ul>
                         </ul>
-                        {item.countedWords.map(({ word, repeat }) => (
-                          <div className="wods">
-                            <p>word: {word} </p>
-                            <p>repeat: {repeat} </p>
-                          </div>
-                        ))}
+                        <div className="wordsContainer">
+                          {item.countedWords.map(({ word, repeat }) => (
+                            <div className="words">
+                              <p>{word} repete {repeat}x </p>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </li>
                   ))}

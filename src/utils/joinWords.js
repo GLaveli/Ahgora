@@ -1,6 +1,4 @@
-
 import { findMostRepeatedWord } from './findMostRepeatedWord';
-
 
 export function joinWords(videoDetails) {
  let joinedWords = [];
