@@ -1,71 +1,44 @@
 module.exports = {
  findMostRepeatedWord(text) {
-  let words = text.match(/\w+/g);
 
-  console.log(contaRepetidas(text))
+  let words = text.split(' ').map((word) => {
+   return word.toLowerCase().replace(/[^\w\s]/gi, '');
+  });
 
-  function contaRepetidas(frase) {
-   let fraseArray = frase.split(' ').map((palavra) => {
-    return palavra.toLowerCase().replace(/[^\w\s]/gi, '');
-   });
+  let totalWords = [];
 
-   let totalPalavras = [];
-
-   for (let x in fraseArray) {
-    if (totalPalavras[fraseArray[x]] === undefined) {
-     totalPalavras[fraseArray[x]] = 0;
-    }
-    totalPalavras[fraseArray[x]]++;
+  for (let word in words) {
+   if (totalWords[words[word]] === undefined) {
+    totalWords[words[word]] = 0;
    }
-
-   let palavrasRepetidas = [];
-
-   for (let x in totalPalavras) {
-    if (totalPalavras[x] > 1) {
-     palavrasRepetidas.push({
-      word: x,
-      repeat: totalPalavras[x]
-     });
-    }
-   }
-
-   palavrasRepetidas.sort(compare);
-
-   function compare(a, b) {
-    if (a.repeat > b.repeat)
-     return -1;
-    if (a.repeat < b.repeat)
-     return 1;
-    return 0;
-   }
-
-
-
-   return palavrasRepetidas.slice(0, 5);
+   totalWords[words[word]]++;
   }
 
+  let repeatedWords = [];
 
-  // let keywords = {}
+  for (let x in totalWords) {
+   if (totalWords[x] > 1 && x.length > 2) {
+    repeatedWords.push({
+     word: x,
+     repeat: totalWords[x]
+    });
+   }
+  }
 
-  // words.forEach(word => {
-  //  word = word.toLowerCase()
-  //  if (keywords.hasOwnProperty(word)) {
-  //   return keywords[word] += 1
-  //  }
-  //  keywords[word] = 1
-  // })
+  if (repeatedWords.length === 0)
+   return repeatedWords = false
 
-  // let keys = Object.keys(keywords)
+  repeatedWords.sort(reorder);
 
-  // for (let i = 0; i < 5; i++) {
-  //  let r = keys.reduce((a, b) => {
-  //   return keywords[a] > keywords[b] ? a : b;
-  //  })
-  //  keys.splice(keys.indexOf(r), 1)
-  //  this.topKeywords += ` ${r},`
-  // }
+  function reorder(a, b) {
+   if (a.repeat > b.repeat)
+    return -1;
+   if (a.repeat < b.repeat)
+    return 1;
+   return 0;
+  }
 
-
+  return repeatedWords.slice(0, 5);
  }
 }
 
