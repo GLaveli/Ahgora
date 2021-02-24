@@ -1,0 +1,28 @@
+.painelContainr {
+ display: flex;
+ flex-direction: row;
+
+
+ height: 100%;
+}
+
+.inputBlock{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ width: 100%;
+ height: 100%;
+}
+
+.inputSettings {
+ display: flex;
+ flex-direction: column;
+ width: 75px;
+ text-align: center;
+ padding-left: 15px;
+}
+
+.minutes{
+ font-size: 12px;
+}

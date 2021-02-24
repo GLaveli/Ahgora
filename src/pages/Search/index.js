@@ -9,8 +9,6 @@ import { joinWords } from '../../utils/joinWords';
 import { minutesTodays } from '../../utils/minutsToDay'
 
 import {
-  API_KEY_GUILHERME,
-  API_KEY_KEREN,
   API_KEY_MARCIO,
   YOUTUBE_URI,
   TOTALRESULTS
@@ -36,7 +34,6 @@ function Search() {
     list.forEach(({ VideoDetails: { contentDetails } }) => {
       arrayTimes.push(convertISO(contentDetails.duration));
     });
-    console.log("AQUI");
     createTotalTime(arrayTimes);
   };
 
@@ -99,7 +96,7 @@ function Search() {
             <button className="searchButton"><FaSearch className="searchIcon" /></button>
           </form>
           <div className="UserOptions">
-            <h3>User Options</h3>
+            <UserPainel />
           </div>
           <div className="totalTime">
             {totalTime !== 0 ?
@@ -107,6 +104,7 @@ function Search() {
               <h3>0</h3>}
           </div>
         </div>
+
         <div className="responseContainer">
           <div>
             {(list.length === 0 ?
@@ -122,7 +120,7 @@ function Search() {
                       </div>
                       <div className="videoContent">
                         <div className="title">
-                          <b><a href={item.VideoDetails.snippet.channelTitle}>{item.VideoDetails.snippet.channelTitle}</a></b>
+                          <a href={item.VideoDetails.snippet.localized.title}>{item.VideoDetails.snippet.localized.title}</a>
                         </div>
                         <div className="description">
                           <p className="descriptionArea">{item.VideoDetails.snippet.description}</p>

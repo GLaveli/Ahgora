@@ -1,62 +1,65 @@
+import React, { useEffect, useState } from 'react';
+
+import './styles.css';
 
 function UserPainel() {
 
+ const [monday, setMonday] = useState(100);
+ const [tuesday, setTuesday] = useState(200);
+ const [wednessday, setWednesday] = useState(200);
+ const [thursday, setThursday] = useState(200);
+ const [friday, setFriday] = useState(200);
+ const [saturnday, setSaturday] = useState(200);
+ const [sunday, setSunday] = useState(200);
+
+ useEffect(() => {
+  localStorage.setItem("monday", monday);
+  localStorage.setItem("tuesday", tuesday);
+  localStorage.setItem("wednessday", wednessday);
+  localStorage.setItem("thursday", thursday);
+  localStorage.setItem("friday", friday);
+  localStorage.setItem("saturnday", saturnday);
+  localStorage.setItem("sunday", sunday);
+ }, [monday, tuesday, wednessday, thursday, friday, saturnday, sunday]);
 
  return (
-  <>
-   <div class="modal-header">
-    <h5 class="modal-title">Configure daily time</h5>
-    <button type="button" class="close" >
-     <span aria-hidden="true">&times;</span>
-    </button>
+  <div className="painelContainr">
+   <div className="inputBlock">
+    <label htmlFor="Monday">Monday</label>
+    <input value={monday} onChange={e => { setMonday(e.target.value) }} className="inputSettings" id="Monday" type="number" placeholder="200" />
+    <label className="minutes">minutes</label>
    </div>
-   <form >
-    <div class="modal-body">
-     <p>Here is our default configuration time for watch video per day. Configure on your own way or just click
-                        "Save". (minutes)</p>
-
-     <div class="form-group mb-2">
-      <span for="sunday">Sunday</span>
-      <input type="text" class="form-control" v-model="watchTime.sunday" />
-     </div>
-
-     <div class="form-group mb-2">
-      <span for="monday">Monday</span>
-      <input type="text" class="form-control" v-model="watchTime.monday" />
-     </div>
-
-     <div class="form-group mb-2">
-      <span for="tuesday">Tuesday</span>
-      <input type="text" class="form-control" v-model="watchTime.tuesday" />
-     </div>
-
-     <div class="form-group mb-2">
-      <span for="wednesday">Wednesday</span>
-      <input type="text" class="form-control" v-model="watchTime.wednesday" />
-     </div>
-
-     <div class="form-group mb-2">
-      <span for="thursday">Thursday</span>
-      <input type="text" class="form-control" v-model="watchTime.thursday" />
-     </div>
-
-     <div class="form-group mb-2">
-      <span for="friday">Friday</span>
-      <input type="text" class="form-control" v-model="watchTime.friday" />
-     </div>
-
-     <div class="form-group mb-2">
-      <span for="saturday">Saturday</span>
-      <input type="text" class="form-control" v-model="watchTime.saturday" />
-     </div>
-
-    </div>
-    <div class="modal-footer">
-     <button type="submit" class="btn btn-success">Save</button>
-    </div>
-   </form>
-
-  </>
+   <div className="inputBlock">
+    <label htmlFor="Tuesday">Tuesday</label>
+    <input value={tuesday} onChange={e => { setTuesday(e.target.value) }} className="inputSettings" id="Tuesday" type="number" placeholder="200" />
+    <label className="minutes">minutes</label>
+   </div>
+   <div className="inputBlock">
+    <label htmlFor="Wednesday">Wednesday</label>
+    <input value={wednessday} onChange={e => { setWednesday(e.target.value) }} className="inputSettings" id="Wednesday" type="number" placeholder="200" />
+    <label className="minutes">minutes</label>
+   </div>
+   <div className="inputBlock">
+    <label htmlFor="Thursday">Thursday</label>
+    <input value={thursday} onChange={e => { setThursday(e.target.value) }} className="inputSettings" id="Thursday" type="number" placeholder="200" />
+    <label className="minutes">minutes</label>
+   </div>
+   <div className="inputBlock">
+    <label htmlFor="Friday">Friday</label>
+    <input value={friday} onChange={e => { setFriday(e.target.value) }} className="inputSettings" id="Friday" type="number" placeholder="200" />
+    <label className="minutes">minutes</label>
+   </div>
+   <div className="inputBlock">
+    <label htmlFor="Saturday">Saturday</label>
+    <input value={saturnday} onChange={e => { setSaturday(e.target.value) }} className="inputSettings" id="Saturday" type="number" placeholder="200" />
+    <label className="minutes">minutes</label>
+   </div>
+   <div className="inputBlock">
+    <label htmlFor="Sunday">Sunday</label>
+    <input value={sunday} onChange={e => { setSunday(e.target.value) }} className="inputSettings" id="Sunday" type="number" placeholder="200" />
+    <label className="minutes">minutes</label>
+   </div>
+  </div>
  );
 }
 
