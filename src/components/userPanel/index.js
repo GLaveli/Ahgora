@@ -12,7 +12,10 @@ function UserPanel() {
  const [saturnday, setSaturday] = useState(200);
  const [sunday, setSunday] = useState(200);
 
+ const [weeks, setWeek] = useState({ segunda: 15, terca: 200, quarta: 45, quinta: 20, sexta: 10, sabado: 40, domingo: 60 });
+
  useEffect(() => {
+  localStorage.setItem("weeks", weeks);
   localStorage.setItem("monday", monday);
   localStorage.setItem("tuesday", tuesday);
   localStorage.setItem("wednessday", wednessday);
@@ -20,7 +23,7 @@ function UserPanel() {
   localStorage.setItem("friday", friday);
   localStorage.setItem("saturnday", saturnday);
   localStorage.setItem("sunday", sunday);
- }, [monday, tuesday, wednessday, thursday, friday, saturnday, sunday]);
+ }, [monday, tuesday, wednessday, thursday, friday, saturnday, sunday, weeks]);
 
  return (
   <>

@@ -26,14 +26,14 @@ function Search() {
  const [userTime, setUserTime] = useState(0);
 
 
-
+ getDayleUserTime();
 
  useEffect(() => {
   if (list.length === 0) {
    return
   }
   getAllTimes();
-  setUserTime(getDayleUserTime());
+  // setUserTime(getDayleUserTime());
  }, [list]);
 
  function getAllTimes() {
