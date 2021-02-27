@@ -8,6 +8,7 @@ import Cards from '../../components/cards';
 import { joinWords } from '../../utils/joinWords';
 import { minutesTodays } from '../../utils/minutsToDay';
 import { convertISO } from '../../utils/convertISO';
+import { getDayleUserTime } from '../../utils/getUserDayleTime';
 
 import {
  API_KEY_MARCIO,
@@ -22,12 +23,17 @@ function Search() {
  const [query, setQuery] = useState('');
  const [list, setList] = useState([]);
  const [totalTime, setTotaltime] = useState(0);
+ const [userTime, setUserTime] = useState(0);
+
+
+
 
  useEffect(() => {
   if (list.length === 0) {
    return
   }
   getAllTimes();
+  setUserTime(getDayleUserTime());
  }, [list]);
 
  function getAllTimes() {
@@ -88,9 +94,13 @@ function Search() {
    </form>
    <UserPanel />
    <div className="totalTime">
+    {userTime !== 0 ?
+     <h3>User time: {userTime}</h3> :
+     <h3>User time: 0</h3>}
+
     {totalTime !== 0 ?
-     <h3>Total {minutesTodays(totalTime)}</h3> :
-     <h3>0</h3>}
+     <h3>Time to Watch all videos: {minutesTodays(totalTime)}</h3> :
+     <h3>Time to Watch all videos: 0</h3>}
    </div>
    <Cards list={list} />
   </div>

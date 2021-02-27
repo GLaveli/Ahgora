@@ -26,7 +26,7 @@ module.exports = {
   }
 
   if (repeatedWords.length === 0)
-   return repeatedWords = false
+   return repeatedWords = [];
 
   repeatedWords.sort(reorder);
 
@@ -37,6 +37,7 @@ module.exports = {
     return 1;
    return 0;
   }
+
 
   return repeatedWords.slice(0, 5);
  }
