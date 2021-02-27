@@ -1,12 +1,10 @@
-import Search from "./pages/Search";
-
-
+import Searchpage from "./pages/SearchPage";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Search />
+        <Searchpage />
       </header>
     </div>
   );

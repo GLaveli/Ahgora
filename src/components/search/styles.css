@@ -1,0 +1,46 @@
+.searchContainer {
+ display: flex;
+ flex-direction: column;
+ min-width: 360px;
+ align-items: center;
+}
+
+.searchContainer .formContainer {
+ display: flex;
+ flex-direction: row;
+ flex-wrap: nowrap;
+ justify-content: center;
+ margin-top: 35px;
+ margin-bottom: 35px;
+}
+
+.searchContainer .searchImput {
+ max-width: 70%;
+ min-width: 40%;
+ height: 3vh;
+ padding-left: 10px;
+ font-size: 20px;
+ color: rgb(0, 0, 0);
+ border: 1px solid rgb(230, 230, 230);
+}
+
+.searchContainer .searchButton {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 75px;
+ height: 3.2vh;
+ border: 1px solid rgb(230, 230, 230);
+}
+
+.searchContainer .searchButton:hover {
+ background-color: rgb(203, 255, 233);
+}
+
+.searchContainer .searchButton:active {
+ background-color: rgb(255, 252, 252);
+}
+
+.searchContainer .searchButton .searchIcon {
+ color: rgb(148, 143, 143);
+}

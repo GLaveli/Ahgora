@@ -1,0 +1,38 @@
+.panelContainer {
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+ justify-content: center;
+ align-items: center;
+ margin-bottom: 30px;
+}
+
+.panelContainer .inputBlock {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ width: 100px;
+ height: 100%;
+ margin: 3px;
+ font-weight: 700;
+}
+
+.panelContainer .inputSettings {
+ display: flex;
+ flex-direction: column;
+ width: 70px;
+ text-align: center;
+ background: white;
+ border: 1px solid black;
+}
+
+.panelContainer .minutes {
+ font-size: 12px;
+}
+
+@media screen and (min-width: 500px) {
+ .panelContainer .inputSettings {
+  padding-left: 15px;
+ }
+}

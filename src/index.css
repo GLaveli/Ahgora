@@ -1,11 +1,13 @@
 * {
-  padding: 0;
-  margin: 0;
-  vertical-align: baseline;
-  list-style: none;
-  border: 0
+ padding: 0;
+ margin: 0;
+ vertical-align: baseline;
+ list-style: none;
+ border: 0;
 }
 
 body {
-  font-family: 'Muli', sans-serif
+ font-family: 'Muli', sans-serif;
+ background: #3E4147;
+ color: rgb(247, 247, 247);
 }
