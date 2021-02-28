@@ -1,4 +1,3 @@
-import { wait } from '@testing-library/react';
 import React, { useEffect, useState } from 'react';
 
 import { getDailyUserTime } from '../../utils/getDailyUserTime'
@@ -8,17 +7,19 @@ import './styles.css';
 function UserPanel() {
 
  const [watchTime, setWatchTime] = useState({
-  'Sunday': 35,
-  'Monday': 0,
-  'Tuesday': 10,
-  'Wednesday': 15,
-  'Thursday': 20,
-  'Friday': 25,
-  'Saturday': 30
+  'Sunday': 5,
+  'Monday': 10,
+  'Tuesday': 15,
+  'Wednesday': 20,
+  'Thursday': 25,
+  'Friday': 30,
+  'Saturday': 35
  });
 
  useEffect(() => {
-  console.log(watchTime);
+  localStorage.clear();
+  localStorage.setItem('weeks', JSON.stringify(watchTime));
+  getDailyUserTime()
  }, [watchTime])
 
 

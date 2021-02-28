@@ -12,7 +12,7 @@ import { getDailyUserTime } from '../../utils/getDailyUserTime';
 import { removeLongestVideos } from "../../utils/removeLongestVideos";
 
 import {
- API_KEY_MARCIO2,
+ API_KEY_MARCIO,
  YOUTUBE_URI,
  TOTALRESULTS
 } from '../../utils/config.json';
@@ -58,7 +58,7 @@ function Search() {
 
  function handleRequestVideos() {
   let query = queryValidator();
-  axios(`${YOUTUBE_URI}search?part=snippet&maxResults=${TOTALRESULTS}&type=video&q=${query}&key=${API_KEY_MARCIO2}`)
+  axios(`${YOUTUBE_URI}search?part=snippet&maxResults=${TOTALRESULTS}&type=video&q=${query}&key=${API_KEY_MARCIO}`)
    .then(({ data: { items } }) => {
     return getContent(getVideoIds(items));
    }).catch(err => {
@@ -77,7 +77,7 @@ function Search() {
  };
 
  function getContent(ids) {
-  axios(`${YOUTUBE_URI}videos?id=${ids}&part=snippet,contentDetails&key=${API_KEY_MARCIO2}`)
+  axios(`${YOUTUBE_URI}videos?id=${ids}&part=snippet,contentDetails&key=${API_KEY_MARCIO}`)
    .then(({ data: { items } }) => {
     setList(joinWords(removeLongestVideos(items)));
    }).catch(err => {
