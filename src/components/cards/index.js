@@ -5,7 +5,6 @@ import './styles.css';
 
 function Cards({ list }) {
 
-
  return (
 
   <div className="videoContainer">
@@ -16,7 +15,7 @@ function Cards({ list }) {
     : (
      <div className="videoList">
       {list.map((item) => (
-       <div className="cardContainer" key={item.id}>
+       <div className="cardContainer" key={item.VideoDetails.id}>
         <div className="card">
          <div className="title">
           <a href={item.VideoDetails.snippet.localized.title}>{item.VideoDetails.snippet.localized.title}</a>
@@ -29,8 +28,10 @@ function Cards({ list }) {
            <p className="descriptionArea">{item.VideoDetails.snippet.description}</p>
           </div>
           <div className="words" >
-           {item.countedWords.map(({ word, repeat }) => (
-            <p><span className="wordMarker">{word}: </span> <span className="timesMarker">{repeat}x</span></p>
+           {item.countedWords.map(({ word, repeat }, i) => (
+            <div key={i}>
+             <p><span className="wordMarker">{word}: </span> <span className="timesMarker">{repeat}x</span></p>
+            </div>
            ))}
           </div>
           <div className="duration">

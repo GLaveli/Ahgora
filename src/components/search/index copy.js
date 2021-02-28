@@ -60,7 +60,7 @@ function Search() {
   let query = queryValidator();
   axios(`${YOUTUBE_URI}search?part=snippet&maxResults=${TOTALRESULTS}&type=video&q=${query}&key=${API_KEY_MARCIO2}`)
    .then(({ data: { items } }) => {
-    return getContent(getVideoIds(items));
+    return getContent(getVideoIds(removeLongestVideos(items)));
    }).catch(err => {
     console.log(err);
    });
@@ -79,7 +79,7 @@ function Search() {
  function getContent(ids) {
   axios(`${YOUTUBE_URI}videos?id=${ids}&part=snippet,contentDetails&key=${API_KEY_MARCIO2}`)
    .then(({ data: { items } }) => {
-    setList(joinWords(removeLongestVideos(items)));
+    setList(joinWords(items));
    }).catch(err => {
     console.log(err);
    });
