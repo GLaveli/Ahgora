@@ -6,12 +6,9 @@ export function getDailyUserTime() {
  let timeByWeeks = JSON.parse(localStorage.getItem('weeks'));
 
  Object.values(timeByWeeks).map(element => {
-
   totalWeekTime += element;
-
   return element;
  });
-
 
  return minutesTodays(totalWeekTime);
 }

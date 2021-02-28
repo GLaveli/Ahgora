@@ -9,10 +9,10 @@ import { joinWords } from '../../utils/joinWords';
 import { minutesTodays } from '../../utils/minutsToDay';
 import { convertISO } from '../../utils/convertISO';
 import { getDailyUserTime } from '../../utils/getDailyUserTime';
-import { removeLongestVideos } from "../../utils/removeLongestVideos";
+import { videoByWeek } from "../../utils/videoByWeek";
 
 import {
- API_KEY_MARCIO,
+ API_KEY_GUILHERME,
  YOUTUBE_URI,
  TOTALRESULTS
 } from '../../utils/config.json';
@@ -58,7 +58,7 @@ function Search() {
 
  function handleRequestVideos() {
   let query = queryValidator();
-  axios(`${YOUTUBE_URI}search?part=snippet&maxResults=${TOTALRESULTS}&type=video&q=${query}&key=${API_KEY_MARCIO}`)
+  axios(`${YOUTUBE_URI}search?part=snippet&maxResults=${TOTALRESULTS}&type=video&q=${query}&key=${API_KEY_GUILHERME}`)
    .then(({ data: { items } }) => {
     return getContent(getVideoIds(items));
    }).catch(err => {
@@ -77,9 +77,9 @@ function Search() {
  };
 
  function getContent(ids) {
-  axios(`${YOUTUBE_URI}videos?id=${ids}&part=snippet,contentDetails&key=${API_KEY_MARCIO}`)
+  axios(`${YOUTUBE_URI}videos?id=${ids}&part=snippet,contentDetails&key=${API_KEY_GUILHERME}`)
    .then(({ data: { items } }) => {
-    setList(joinWords(removeLongestVideos(items)));
+    setList(joinWords(videoByWeek(items)));
    }).catch(err => {
     console.log(err);
    });

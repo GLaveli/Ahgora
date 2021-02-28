@@ -4,9 +4,7 @@ import { convertISO } from '../../utils/convertISO';
 import './styles.css';
 
 function Cards({ list }) {
-
  return (
-
   <div className="videoContainer">
    {(list.length === 0 ?
     (<div className="awaytVideo">
