@@ -42,7 +42,7 @@ Cada vídeo traz a informação de  duração e também as 5 palavras que mais s
 
 (videos ao vivo podem aparecer na lista com duração 0:00)
 
-<img src="https://github.com/GLaveli/Ahgora/blob/main/gitAssets/videoInfo.png" width="700px" height="250px" align="right"/>
+<img src="https://github.com/GLaveli/Ahgora/blob/main/gitAssets/videoInfo.png" width="700px" height="250px" align="center"/>
 
 
 
