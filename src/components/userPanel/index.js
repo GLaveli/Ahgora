@@ -7,13 +7,13 @@ import './styles.css';
 function UserPanel() {
 
  const [watchTime, setWatchTime] = useState({
-  'Sunday': 5,
-  'Monday': 10,
-  'Tuesday': 15,
-  'Wednesday': 20,
-  'Thursday': 25,
-  'Friday': 30,
-  'Saturday': 35
+  'Sunday': 15,
+  'Monday': 120,
+  'Tuesday': 30,
+  'Wednesday': 150,
+  'Thursday': 20,
+  'Friday': 40,
+  'Saturday': 390
  });
 
  useEffect(() => {

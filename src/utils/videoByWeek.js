@@ -4,19 +4,19 @@ export function videoByWeek(videoList) {
 
  let weeks = JSON.parse(localStorage.getItem('weeks'));
  let timeMarker = 0;
- let videoReturnByWeek = [];
+ let returnVideoByWeek = [];
 
  Object.keys(weeks).forEach((week) => {
   timeMarker = 0;
-  for (let posicaoAtualVideoList in videoList) {
-   let tempoVideoAtual = convertISO(videoList[posicaoAtualVideoList].contentDetails.duration);
-   if ((timeMarker + tempoVideoAtual) <= weeks[week]) {
-    timeMarker += tempoVideoAtual;
-    if (videoReturnByWeek[week] === undefined) {
-     videoReturnByWeek[week] = [];
+  for (let position in videoList) {
+   let videoDuration = convertISO(videoList[position].contentDetails.duration);
+   if ((timeMarker + videoDuration) <= weeks[week]) {
+    timeMarker += videoDuration;
+    if (returnVideoByWeek[week] === undefined) {
+     returnVideoByWeek[week] = [];
     }
-    videoReturnByWeek[week].push(videoList[posicaoAtualVideoList]);
-    videoList.splice(posicaoAtualVideoList, 1);
+    returnVideoByWeek[week].push(videoList[position]);
+    videoList.splice(position, 1);
    }
    if (timeMarker === weeks[week]) {
     break;
@@ -24,5 +24,5 @@ export function videoByWeek(videoList) {
   }
  });
 
- return videoReturnByWeek;
+ return returnVideoByWeek;
 }
