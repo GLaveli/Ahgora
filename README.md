@@ -32,7 +32,7 @@ ao iniciar o projeto basta acessar a URL
 # Manual:
 A aplicação possui apenas uma página, onde são apresentados o menu de busca e o menu de configurações.
 
-<img src="https://github.com/GLaveli/Ahgora/blob/main/gitAssets/search.png" width="1100px" height="470px" align="center"/>
+<img src="https://github.com/GLaveli/Ahgora/blob/main/gitAssets/search.png" width="700px" height="400px" align="center"/>
 
 Para cada dia da semana o usuário pode definir quantos minutos em determinado dia ele terá para assistir, sendo assim cada dia da semana comporta apenas a quantidade de vídeos cuja a soma de seus tempos corresponda ao total de minutos escolhido pelo usuário.
 
@@ -42,7 +42,7 @@ Cada vídeo traz a informação de  duração e também as 5 palavras que mais s
 
 (videos ao vivo podem aparecer na lista com duração 0:00)
 
-<img src="https://github.com/GLaveli/Ahgora/blob/main/gitAssets/videoInfo.png" width="1100px" height="470px" align="center"/>
+<img src="https://github.com/GLaveli/Ahgora/blob/main/gitAssets/videoInfo.png" width="700px" height="400px" align="center"/>
 
 
 
