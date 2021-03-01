@@ -36,7 +36,7 @@ A aplicação possui apenas uma página, onde são apresentados o menu de busca 
 
 Para cada dia da semana o usuário pode definir quantos minutos em determinado dia ele terá para assistir, sendo assim cada dia da semana comporta apenas a quantidade de vídeos cuja a soma de seus tempos corresponda ao total de minutos escolhido pelo usuário.
 
-para cada busca a página apresenta todos os vídeos que podem ser assistidos durante toda a semana respeitando a soma de todos os minutos informados nos campos da semana
+para cada busca a página apresenta todos os vídeos que podem ser assistidos durante toda a semana respeitando a soma de todos os minutos informados nos campos da semana, são retornados 200 videos por consulta, videos retornados com duração maior do que qualquer um dos campos da semana são descartados.
 
 Cada vídeo traz a informação de  duração e também as 5 palavras que mais se repetem na descrição e no título.
 
